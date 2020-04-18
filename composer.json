@@ -1,0 +1,35 @@
+{
+    "name": "chaosannals/six",
+    "description": "yet a thinkphp 6 library.",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "chaosannals",
+            "email": "chaosannals@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "six\\": "main"
+        },
+        "files": [
+            "helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "test\\": "test"
+        }
+    },
+    "require": {
+        "topthink/framework": "^6.0",
+        "topthink/think-orm": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    },
+    "scripts": {
+        "test": "phpunit --bootstrap vendor/autoload.php --testdox test"
+    }
+}
