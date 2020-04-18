@@ -10,7 +10,7 @@ class SixModelTest extends TestCase
 {
     public static function setUpBeforeClass(): void
     {
-        $setting = require dirname(__DIR__) . './db.php';
+        $setting = require dirname(__DIR__) . '/config/db.php';
         Db::setConfig($setting);
     }
 
