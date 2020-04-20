@@ -20,4 +20,18 @@ class SixPermitTest extends TestCase
         $two = $permit->analyze(Test::class, 'two');
         $this->assertContains('two', $two);
     }
+
+    public function testIsSufficient()
+    {
+        $permit = new SixPermit(['one', 'two']);
+        $result = $permit->isSufficient(Test::class, 'one');
+        $this->assertTrue($result);
+    }
+
+    public function testIsAvaliable()
+    {
+        $permit = new SixPermit(['two']);
+        $result = $permit->isAvaliable(Test::class, 'two');
+        $this->assertTrue($result);
+    }
 }
