@@ -80,7 +80,7 @@ abstract class SixModel extends Model
     }
 
     /**
-     * 批量等于
+     * 批量等于。
      *
      * @param array $param
      * @param array $fields

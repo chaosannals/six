@@ -4,6 +4,10 @@ namespace six\orm;
 
 use six\exception\SixEntityException;
 
+/**
+ * 实体。
+ * 
+ */
 abstract class SixEntity
 {
     public function __get($name)

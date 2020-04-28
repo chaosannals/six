@@ -6,6 +6,10 @@ use PHPUnit\Framework\TestCase;
 use six\SixPermit;
 use test\controller\Test;
 
+/**
+ * 权限测试。
+ * 
+ */
 class SixPermitTest extends TestCase
 {
     public function testAnalyze()
