@@ -2,6 +2,7 @@
 
 namespace six\orm;
 
+use think\Db;
 use think\Model;
 use think\helper\Str;
 
@@ -102,5 +103,28 @@ abstract class SixModel extends Model
                 }
             }
         }
+    }
+
+    public function batchUpdate($data, $field = 'id')
+    {
+        $keys = [];
+        $items = [];
+        foreach ($data as $row) {
+            $key = $row[$field];
+            $keys[] = $key;
+            foreach ($row as $k => $v) {
+                if (is_string($v)) {
+                    $items[$k] = "WHEN $key THEN '$v'";
+                } else {
+                    $items[$k] = "WHEN $key THEN $v";
+                }
+            }
+        }
+        $cases = [];
+        foreach ($items as $f => $i) {
+            $cases[$f] = Db::raw("CASE $field " . join(' ', $i) . ' END');
+        }
+        $this->where($field, 'in', $keys)
+            ->update($cases);
     }
 }
